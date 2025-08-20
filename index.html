@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Post App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      width: 500px;
+      text-align: center;
+    }
+
+    /* Plus Button */
+    .add-btn {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      font-size: 22px;
+      font-weight: bold;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 15px;
+    }
+
+    .add-btn:hover {
+      background: #0056b3;
+    }
+
+    /* Inputs */
+    input[type="text"] {
+      width: 90%;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 15px;
+      margin-bottom: 12px;
+      transition: 0.3s;
+      display: none;
+    }
+
+    input[type="text"]:focus {
+      border-color: #007bff;
+      box-shadow: 0px 0px 6px rgba(0,123,255,0.3);
+    }
+
+    /* Add Post Button */
+    #buton {
+      padding: 12px 25px;
+      background: #28a745;
+      border: none;
+      color: #fff;
+      font-size: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: none;
+    }
+
+    #buton:hover {
+      background: #218838;
+    }
+
+    /* Cards */
+    #show {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h1 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="add-btn" onclick="showbtn()">+</button>
+    <input type="text" placeholder="Title" id="op">
+    <input type="text" placeholder="Description" id="p">
+    <button id="buton" onclick="addPost()">Add Post</button>
+    <div id="show"></div>
+  </div>
+
+  <script>
+    let title = document.getElementById('op');
+    let desc = document.getElementById('p');
+    let addBtn = document.getElementById('buton');
+    let show = document.getElementById('show');
+
+    function showbtn(){
+      title.style.display = "block";
+      desc.style.display = "block";
+      addBtn.style.display = "inline-block";
+    }
+
+    function addPost(){
+      let card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `<h1>${title.value}</h1> <p>${desc.value}</p>`;
+      show.appendChild(card);
+      title.value = '';
+      desc.value = '';
+    }
+  </script>
+  <a href="Whatsapp.html">whatsapp</a>
+</body>
+</html>

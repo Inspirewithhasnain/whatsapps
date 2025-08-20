@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read More Input</title>
+  <a href="index.html">X</a>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    #text {
+      width: 90%;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    #text:focus {
+      border-color: #007bff;
+      box-shadow: 0px 0px 6px rgba(0,123,255,0.4);
+    }
+
+    #read-more {
+      display: none;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+
+    #read-more:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="text" id="text" placeholder="Enter text...">
+    <div id="show-text"></div>
+    <span id="read-more" onclick="showFullText()">Read More</span>
+  </div>
+
+  <script>
+    let textInput = document.getElementById('text');
+    let readMore = document.getElementById('read-more');
+    let originalText = '';
+
+    textInput.addEventListener('input', () => {
+      if (textInput.value.length > 100) {
+        originalText = textInput.value;
+        readMore.style.display = 'inline-block';
+      } else {
+        originalText = '';
+        readMore.style.display = 'none';
+      }
+    });
+
+    function showFullText() {
+      if (originalText) {
+        textInput.value = originalText;
+        readMore.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
